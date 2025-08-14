@@ -6,8 +6,7 @@ import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../components/ui/dialog";
-import { ArrowLeft, Mail, Inbox, Send, FileText, Trash2, Plus, Search, Refresh, Star } from "lucide-react";
+import { ArrowLeft, Mail, Inbox, Send, FileText, Trash2, Plus, Search, Refresh } from "lucide-react";
 import { toast } from "sonner";
 
 const EmailView = () => {
