@@ -30,7 +30,7 @@ function App() {
                 path="/email/:accountId"
                 element={
                   <ProtectedRoute>
-                    <EmailView />
+                    <SimpleEmailView />
                   </ProtectedRoute>
                 }
               />
