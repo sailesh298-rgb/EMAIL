@@ -104,62 +104,67 @@ const EmailView = () => {
         </div>
 
         <div className="p-4">
-          <Dialog open={showCompose} onOpenChange={setShowCompose}>
-            <DialogTrigger asChild>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                <Plus className="w-4 h-4 mr-2" />
-                Compose
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-2xl">
-              <DialogHeader>
-                <DialogTitle>Compose Email</DialogTitle>
-              </DialogHeader>
-              <form onSubmit={handleCompose} className="space-y-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">From</label>
-                  <Input value={selectedAccount.email} disabled />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">To</label>
-                  <Input
-                    value={composeData.to}
-                    onChange={(e) => setComposeData(prev => ({ ...prev, to: e.target.value }))}
-                    placeholder="recipient@example.com"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Subject</label>
-                  <Input
-                    value={composeData.subject}
-                    onChange={(e) => setComposeData(prev => ({ ...prev, subject: e.target.value }))}
-                    placeholder="Email subject"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Message</label>
-                  <Textarea
-                    value={composeData.body}
-                    onChange={(e) => setComposeData(prev => ({ ...prev, body: e.target.value }))}
-                    placeholder="Type your message here..."
-                    rows={8}
-                  />
-                </div>
-                <div className="flex justify-end gap-3">
-                  <Button type="button" variant="outline" onClick={() => setShowCompose(false)}>
-                    Cancel
-                  </Button>
-                  <Button type="submit" className="bg-blue-600 hover:bg-blue-700">
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Email
-                  </Button>
-                </div>
-              </form>
-            </DialogContent>
-          </Dialog>
+          <Button 
+            className="w-full bg-blue-600 hover:bg-blue-700"
+            onClick={() => setShowCompose(true)}
+          >
+            <Plus className="w-4 h-4 mr-2" />
+            Compose
+          </Button>
         </div>
+
+        {/* Compose Modal */}
+        {showCompose && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="p-6">
+                <h3 className="text-lg font-semibold mb-4">Compose Email</h3>
+                <form onSubmit={handleCompose} className="space-y-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">From</label>
+                    <Input value={selectedAccount.email} disabled />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">To</label>
+                    <Input
+                      value={composeData.to}
+                      onChange={(e) => setComposeData(prev => ({ ...prev, to: e.target.value }))}
+                      placeholder="recipient@example.com"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Subject</label>
+                    <Input
+                      value={composeData.subject}
+                      onChange={(e) => setComposeData(prev => ({ ...prev, subject: e.target.value }))}
+                      placeholder="Email subject"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Message</label>
+                    <Textarea
+                      value={composeData.body}
+                      onChange={(e) => setComposeData(prev => ({ ...prev, body: e.target.value }))}
+                      placeholder="Type your message here..."
+                      rows={8}
+                    />
+                  </div>
+                  <div className="flex justify-end gap-3">
+                    <Button type="button" variant="outline" onClick={() => setShowCompose(false)}>
+                      Cancel
+                    </Button>
+                    <Button type="submit" className="bg-blue-600 hover:bg-blue-700">
+                      <Send className="w-4 h-4 mr-2" />
+                      Send Email
+                    </Button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        )}
 
         <nav className="flex-1 p-4">
           <div className="space-y-1">
