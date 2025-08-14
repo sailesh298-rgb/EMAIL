@@ -4,7 +4,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { EmailProvider } from "./contexts/EmailContext";
 import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
-import EmailView from "./pages/EmailView";
+import SimpleEmailView from "./pages/SimpleEmailView";
 import AccountManagement from "./pages/AccountManagement";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Toaster } from "./components/ui/sonner";
